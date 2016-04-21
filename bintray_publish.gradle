@@ -1,0 +1,87 @@
+ext {
+  // Library identifier. Your final dependency will be `group:artifact:version
+  libraryGroup = 'org.droiders'
+  libraryArtifact = 'zoomeye-api'
+  libraryVersion = '1.0.0'
+  // Optional Maven parameters to build the pom.xml
+  libraryDescription = 'This library does this and that'
+  librarySiteUrl = 'https://github.com/mycompany/my-fancy-library'
+  libraryGitUrl = 'https://github.com/mycompany/my-fancy-library.git'
+  libraryLicense = {
+    name 'The Apache Software License, Version 2.0'
+    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  }
+  libraryDevelopers = {
+    developer {
+      id 'donglua'
+      name 'donglua'
+      email 'foolfalcon@hotmail.com'
+    }
+  }
+  // Credentials in Bintray. In a "bintray.properties" file that's ignored in Git
+  Properties properties = new Properties()
+  properties.load(project.rootProject.file('bintray.properties').newDataInputStream())
+  bintrayUser = properties.getProperty('bintray.user')
+  bintrayApiKey = properties.getProperty('bintray.apikey')
+}
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+version = libraryVersion
+group = libraryGroup
+
+bintray {
+  user = bintrayUser
+  key = bintrayApiKey
+
+  configurations = ['archives']
+  pkg {
+    repo = "maven"
+    name = libraryArtifact
+    websiteUrl = librarySiteUrl
+    vcsUrl = libraryGitUrl
+    licenses = [libraryLicense.name]
+    publish = true
+  }
+}
+
+install {
+  repositories.mavenInstaller {
+    pom {
+      project {
+        packaging 'aar'
+        name libraryDescription
+        url librarySiteUrl
+        licenses {
+          license libraryLicense
+        }
+        developers libraryDevelopers
+        scm {
+          connection libraryGitUrl
+          developerConnection libraryGitUrl
+          url librarySiteUrl
+        }
+      }
+    }
+  }
+}
+
+task sourcesJar(type: Jar) {
+  from android.sourceSets.main.java.srcDirs
+  classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+  source = android.sourceSets.main.java.srcDirs
+  classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from javadoc.destinationDir
+}
+artifacts {
+  archives javadocJar
+  archives sourcesJar
+}
