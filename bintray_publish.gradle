@@ -2,13 +2,14 @@ ext {
   // Library identifier. Your final dependency will be `group:artifact:version
   libraryGroup = 'org.droiders'
   libraryArtifact = 'zoomeye-api'
-  libraryVersion = '1.0.0'
+  libraryVersion = '0.0.1'
   // Optional Maven parameters to build the pom.xml
   libraryDescription = 'This library does this and that'
-  librarySiteUrl = 'https://github.com/mycompany/my-fancy-library'
-  libraryGitUrl = 'https://github.com/mycompany/my-fancy-library.git'
+  librarySiteUrl = 'https://github.com/donglua/ZoomEye-API'
+  libraryGitUrl = 'https://github.com/donglua/ZoomEye-API.git'
+//  licenseName "The Apache Software License, Version 2.0"
   libraryLicense = {
-    name 'The Apache Software License, Version 2.0'
+    name "The Apache Software License, Version 2.0"
     url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
   }
   libraryDevelopers = {
@@ -41,31 +42,31 @@ bintray {
     name = libraryArtifact
     websiteUrl = librarySiteUrl
     vcsUrl = libraryGitUrl
-    licenses = [libraryLicense.name]
+    licenses = ['Apache-2.0']
     publish = true
   }
 }
 
-install {
-  repositories.mavenInstaller {
-    pom {
-      project {
-        packaging 'aar'
-        name libraryDescription
-        url librarySiteUrl
-        licenses {
-          license libraryLicense
-        }
-        developers libraryDevelopers
-        scm {
-          connection libraryGitUrl
-          developerConnection libraryGitUrl
-          url librarySiteUrl
-        }
-      }
-    }
-  }
-}
+//install {
+//  repositories.mavenInstaller {
+//    pom {
+//      project {
+//        packaging 'aar'
+//        name libraryDescription
+//        url librarySiteUrl
+//        licenses {
+//          license libraryLicense
+//        }
+//        developers libraryDevelopers
+//        scm {
+//          connection libraryGitUrl
+//          developerConnection libraryGitUrl
+//          url librarySiteUrl
+//        }
+//      }
+//    }
+//  }
+//}
 
 task sourcesJar(type: Jar) {
   from android.sourceSets.main.java.srcDirs
