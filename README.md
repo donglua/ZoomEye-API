@@ -1,13 +1,14 @@
 # ZoomEye-API
 ZoomEye Android API  
 
-## Gradle
+## Usage
+### Gradle
 
 ```gradle
 compile 'org.droiders:zoomeye-api:0.0.1'
 ```
 
-## Maven
+### Maven
 ```xml
 <dependency>
   <groupId>org.droiders</groupId>
