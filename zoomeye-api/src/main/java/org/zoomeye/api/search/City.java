@@ -25,4 +25,5 @@ public class City {
   public Names getNames() {
     return names;
   }
+
 }
