@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 import org.zoomeye.api.ErrorBody;
-import org.zoomeye.api.ErrorBodyConverter;
+import org.zoomeye.api.ErrorBodyHandler;
 import org.zoomeye.api.ZoomEyeApiService;
 import org.zoomeye.api.auth.AccessToken;
 import org.zoomeye.api.auth.LoginRequest;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
               Timber.d("accessToken = %s", accessToken);
               Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
             } else {
-              ErrorBody errorBody = ErrorBodyConverter.parseError(retrofit, response.errorBody());
+              ErrorBody errorBody = ErrorBodyHandler.parseError(retrofit, response.errorBody());
               Toast.makeText(MainActivity.this, errorBody.getMessage(), Toast.LENGTH_LONG).show();
             }
           }
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 if (listResponse.isSuccessful()) {
                   Timber.d("response : Total = " + listResponse.body().getTotal());
                 } else {
-                  ErrorBody errorBody = ErrorBodyConverter.parseError(retrofit, listResponse.errorBody());
+                  ErrorBody errorBody = ErrorBodyHandler.parseError(retrofit, listResponse.errorBody());
                   Toast.makeText(MainActivity.this, errorBody.getMessage(), Toast.LENGTH_LONG).show();
                 }
               }

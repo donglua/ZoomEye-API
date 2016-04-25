@@ -6,7 +6,16 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
-public class ErrorBodyConverter {
+public class ErrorBodyHandler {
+
+  private final Retrofit retrofit;
+  public ErrorBodyHandler(Retrofit retrofit) {
+    this.retrofit = retrofit;
+  }
+
+  public ErrorBody parseError(ResponseBody responseBody) {
+    return ErrorBodyHandler.parseError(retrofit, responseBody);
+  }
 
   public static ErrorBody parseError(Retrofit retrofit, ResponseBody responseBody) {
     Converter<ResponseBody, ErrorBody>
