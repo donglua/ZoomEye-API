@@ -11,7 +11,7 @@ public class AccessToken implements Parcelable {
   private String access_token;
 
   @Override public String toString() {
-    return "JWT " + access_token;
+    return access_token;
   }
 
   @Override public int describeContents() {
