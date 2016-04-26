@@ -10,4 +10,11 @@ public class Resources {
   @SerializedName("host-search") private int hostSearch;
   @SerializedName("web-search")  private int webSearch;
 
+  public int getWebSearch() {
+    return webSearch;
+  }
+
+  public int getHostSearch() {
+    return hostSearch;
+  }
 }
