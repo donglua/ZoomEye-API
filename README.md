@@ -5,7 +5,7 @@ ZoomEye Android API
 ### Gradle
 
 ```gradle
-compile 'org.droiders:zoomeye-api:0.0.1'
+compile 'org.droiders:zoomeye-api:0.0.2'
 ```
 
 ### Maven
@@ -13,7 +13,7 @@ compile 'org.droiders:zoomeye-api:0.0.1'
 <dependency>
   <groupId>org.droiders</groupId>
   <artifactId>zoomeye-api</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <type>pom</type>
 </dependency>
 ```
