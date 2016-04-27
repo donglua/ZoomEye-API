@@ -5,8 +5,21 @@ package org.zoomeye.api.search;
  */
 public class SearchQuery {
 
+  public static final String APP = "app";
+  public static final String VERSION = "version";
+  public static final String DEVICE = "device";
+  public static final String OS = "os";
+  public static final String SERVICE = "service";
+  public static final String IP = "ip";
+  public static final String CIDR = "cidr";
+  public static final String HOSTNAME = "hostname";
+  public static final String PORT = "port";
+  public static final String CITY = "city";
+  public static final String COUNTRY = "country";
+  public static final String ASN = "asn";
+
   private String query;
-  private HostSearchFilters hostSearchFilter;
+  private String filter;
 
   public SearchQuery() {
   }
@@ -15,23 +28,15 @@ public class SearchQuery {
     this.query = query;
   }
 
-  public SearchQuery(String query, HostSearchFilters hostSearchFilter) {
+  public SearchQuery(String filter, String query) {
+    this.filter = filter;
     this.query = query;
-    this.hostSearchFilter = hostSearchFilter;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public void setHostSearchFilters(HostSearchFilters hostSearchFilters) {
-    this.hostSearchFilter = hostSearchFilters;
   }
 
   @Override public String toString() {
-    if (hostSearchFilter == null) {
+    if (filter == null) {
       return query;
     }
-    return hostSearchFilter.toString() + query;
+    return filter + ":" + query;
   }
 }

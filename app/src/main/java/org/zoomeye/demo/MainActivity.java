@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io()))
         .build();
     final ZoomEyeApiService service = retrofit.create(ZoomEyeApiService.class);
-    service.login(new LoginRequest("927878309@qq.com", "123456"))
+    service.login(new LoginRequest("YOUR EMAIL", "YOUR PASSWORD"))
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Action1<Response<AccessToken>>() {
           @Override public void call(Response<AccessToken> response) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     assert view != null;
     view.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        service.search(new SearchQuery("foo"), accessToken.toString()).subscribeOn(Schedulers.io())
+        service.search(new SearchQuery("app", "foo").toString(), accessToken.toString()).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Action1<Response<SearchResult>>() {
               @Override public void call(Response<SearchResult> listResponse) {

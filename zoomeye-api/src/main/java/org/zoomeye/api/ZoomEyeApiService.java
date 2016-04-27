@@ -3,7 +3,6 @@ package org.zoomeye.api;
 import org.zoomeye.api.auth.AccessToken;
 import org.zoomeye.api.auth.LoginRequest;
 import org.zoomeye.api.info.ResourcesInfo;
-import org.zoomeye.api.search.SearchQuery;
 import org.zoomeye.api.search.SearchResult;
 import retrofit2.Response;
 import retrofit2.http.Body;
@@ -18,8 +17,8 @@ public interface ZoomEyeApiService {
 
   @POST("/user/login") Observable<Response<AccessToken>> login(@Body LoginRequest body);
 
-  @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") SearchQuery query);
-  @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") SearchQuery query, @Header("Authorization") String token);
+  @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") String query);
+  @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") String query, @Header("Authorization") String token);
 
   @GET("/resources-info") Observable<Response<ResourcesInfo>> getResourcesInfo();
   @GET("/resources-info") Observable<Response<ResourcesInfo>> getResourcesInfo(@Header("Authorization") String token);
