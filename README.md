@@ -21,7 +21,7 @@ ZoomEyeApiService api = retrofit.create(ZoomEyeApiService.class);
 ```java
 ErrorBodyHandler errorHandler = new ErrorBodyHandler(retrofit);
 
-api.login(new LoginRequest(email, password))
+api.login(new LoginRequest(username, password))
     .observeOn(AndroidSchedulers.mainThread())
     .subscribe(tokenResponse -> {
       if (tokenResponse.isSuccessful()) {
