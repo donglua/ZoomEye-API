@@ -1,4 +1,6 @@
 # ZoomEye-API
+[ ![Download](https://api.bintray.com/packages/donglua/maven/zoomeye-api/images/download.svg) ](https://bintray.com/donglua/maven/zoomeye-api/_latestVersion)
+
 ZoomEye Android API  
 
 ## Gradle
