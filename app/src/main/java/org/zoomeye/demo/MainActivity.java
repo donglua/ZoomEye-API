@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io()))
         .build();
     final ZoomEyeApiService service = retrofit.create(ZoomEyeApiService.class);
-    service.login(new LoginRequest("927878309@qq.com", "oooo0000"))
+    service.login(new LoginRequest("YOUR EMAIL", "YOUR PASSWORD"))
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Action1<Response<AccessToken>>() {
           @Override public void call(Response<AccessToken> response) {
