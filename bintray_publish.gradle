@@ -2,7 +2,7 @@ ext {
   // Library identifier. Your final dependency will be `group:artifact:version
   libraryGroup = 'org.droiders'
   libraryArtifact = 'zoomeye-api'
-  libraryVersion = '0.0.4'
+  libraryVersion = '0.0.5'
   // Optional Maven parameters to build the pom.xml
   libraryDescription = 'This library does this and that'
   librarySiteUrl = 'https://github.com/donglua/ZoomEye-API'

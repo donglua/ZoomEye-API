@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+import okhttp3.HttpUrl;
 import org.zoomeye.api.ErrorBody;
 import org.zoomeye.api.ErrorBodyHandler;
 import org.zoomeye.api.ZoomEyeApiService;
 import org.zoomeye.api.auth.AccessToken;
 import org.zoomeye.api.auth.LoginRequest;
-import org.zoomeye.api.search.SearchQuery;
 import org.zoomeye.api.search.SearchResult;
-import okhttp3.HttpUrl;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         .addCallAdapterFactory(RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io()))
         .build();
     final ZoomEyeApiService service = retrofit.create(ZoomEyeApiService.class);
-    service.login(new LoginRequest("YOUR EMAIL", "YOUR PASSWORD"))
+    service.login(new LoginRequest("927878309@qq.com", "oooo0000"))
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(new Action1<Response<AccessToken>>() {
           @Override public void call(Response<AccessToken> response) {
@@ -55,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
     assert view != null;
     view.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        service.search(new SearchQuery("app", "foo").toString(), accessToken.toString()).subscribeOn(Schedulers.io())
+        service.search("JWT " + accessToken.toString(), "port:21", 1,
+            "app,device,service,os,port,country,city")
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Action1<Response<SearchResult>>() {
               @Override public void call(Response<SearchResult> listResponse) {
