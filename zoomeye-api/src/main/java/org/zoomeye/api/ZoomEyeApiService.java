@@ -18,30 +18,30 @@ public interface ZoomEyeApiService {
 
   @POST("/user/login") Observable<Response<AccessToken>> login(@Body LoginRequest body);
 
-  @GET("/host/searchHost") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query);
-  @GET("/host/searchHost") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query,
+  @GET("/host/search") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query);
+  @GET("/host/search") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query,
                                                                              @Query("page")  int page);
-  @GET("/host/searchHost") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query,
+  @GET("/host/search") Observable<Response<HostSearchResult>> searchHost(@Query("query") String query,
                                                                              @Query("page")  int page,
                                                                              @Query("facets") String facets);
 
-  @GET("/host/searchHost") Observable<Response<HostSearchResult>> searchHost(@Header("Authorization") String token,
+  @GET("/host/search") Observable<Response<HostSearchResult>> searchHost(@Header("Authorization") String token,
                                                                              @Query("query") String query);
-  @GET("/host/searchHost") Observable<Response<HostSearchResult>> searchHost(@Header("Authorization") String token,
+  @GET("/host/search") Observable<Response<HostSearchResult>> searchHost(@Header("Authorization") String token,
                                                                              @Query("query") String query,
                                                                              @Query("page") int page,
                                                                              @Query("facets") String facets);
 
-  @GET("/host/searchHost") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query);
-  @GET("/host/searchHost") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query,
+  @GET("/web/search") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query);
+  @GET("/web/search") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query,
                                                                            @Query("page")  int page);
-  @GET("/host/searchHost") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query,
+  @GET("/web/search") Observable<Response<WebSearchResult>> searchWeb(@Query("query") String query,
                                                                            @Query("page")  int page,
                                                                            @Query("facets") String facets);
 
-  @GET("/host/searchHost") Observable<Response<WebSearchResult>> searchWeb(@Header("Authorization") String token,
+  @GET("/web/search") Observable<Response<WebSearchResult>> searchWeb(@Header("Authorization") String token,
                                                                            @Query("query") String query);
-  @GET("/host/searchHost") Observable<Response<WebSearchResult>> searchWeb(@Header("Authorization") String token,
+  @GET("/web/search") Observable<Response<WebSearchResult>> searchWeb(@Header("Authorization") String token,
                                                                            @Query("query") String query,
                                                                            @Query("page") int page,
                                                                            @Query("facets") String facets);
