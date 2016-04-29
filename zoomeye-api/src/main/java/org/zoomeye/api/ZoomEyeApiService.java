@@ -19,7 +19,9 @@ public interface ZoomEyeApiService {
 
   @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") String query);
   @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") String query,
-                                                                 @Query("page") int page,
+                                                                 @Query("page")  int page);
+  @GET("/host/search") Observable<Response<SearchResult>> search(@Query("query") String query,
+                                                                 @Query("page")  int page,
                                                                  @Query("facets") String facets);
 
   @GET("/host/search") Observable<Response<SearchResult>> search(@Header("Authorization") String token,
