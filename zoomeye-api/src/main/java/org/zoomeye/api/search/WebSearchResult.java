@@ -7,11 +7,11 @@ import org.zoomeye.api.facets.Facets;
  * Created by Donglua on 16/4/29.
  */
 public class WebSearchResult {
-  private List<MatchHost> matches;
+  private List<MatchWeb> matches;
   private Facets facets;
   private int total;
 
-  public List<MatchHost> getMatches() {
+  public List<MatchWeb> getMatches() {
     return matches;
   }
 

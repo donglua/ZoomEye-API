@@ -11,7 +11,7 @@ public class MatchWeb {
   private List<String> language;
   private List<String> ip;
   private List<Db> db;
-  private Plugin plugin;
+  private List<Plugin> plugin;
   private String check_time; // 2016-2-23T14:58:41.979769
   private String site;
   private List<WebApp> webapp;
@@ -34,10 +34,6 @@ public class MatchWeb {
 
   public List<Db> getDb() {
     return db;
-  }
-
-  public Plugin getPlugin() {
-    return plugin;
   }
 
   public String getCheckTime() {
@@ -66,5 +62,9 @@ public class MatchWeb {
 
   public String getTitle() {
     return title;
+  }
+
+  public List<Plugin> getPlugin() {
+    return plugin;
   }
 }
