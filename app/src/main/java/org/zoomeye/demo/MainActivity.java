@@ -10,7 +10,7 @@ import org.zoomeye.api.ErrorBodyHandler;
 import org.zoomeye.api.ZoomEyeApiService;
 import org.zoomeye.api.auth.AccessToken;
 import org.zoomeye.api.auth.LoginRequest;
-import org.zoomeye.api.search.SearchResult;
+import org.zoomeye.api.search.HostSearchResult;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity {
     assert view != null;
     view.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        service.search("JWT " + accessToken.toString(), "port:21", 1,
+        service.searchHost("JWT " + accessToken.toString(), "port:21", 1,
             "app,device,service,os,port,country,city")
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Action1<Response<SearchResult>>() {
-              @Override public void call(Response<SearchResult> listResponse) {
+            .subscribe(new Action1<Response<HostSearchResult>>() {
+              @Override public void call(Response<HostSearchResult> listResponse) {
                 if (listResponse.isSuccessful()) {
                   Timber.d("response : Total = " + listResponse.body().getTotal());
                 } else {

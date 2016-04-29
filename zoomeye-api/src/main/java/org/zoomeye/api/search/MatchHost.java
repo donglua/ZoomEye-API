@@ -3,7 +3,7 @@ package org.zoomeye.api.search;
 /**
  * Created by Donglua on 16/4/21.
  */
-public class Match {
+public class MatchHost {
 
   private GeoInfo geoinfo;
   private String ip;
