@@ -18,7 +18,7 @@ public class Match {
     return ip;
   }
 
-  public PortInfo getPortinfo() {
+  public PortInfo getPortInfo() {
     return portinfo;
   }
 
