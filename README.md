@@ -2,7 +2,7 @@
 ZoomEye Android API  
 
 ## Gradle
-[ ![Download](https://api.bintray.com/packages/donglua/maven/zoomeye-api/images/download.svg) ](https://bintray.com/donglua/maven/zoomeye-api/_latestVersion)
+[![Download](https://api.bintray.com/packages/donglua/maven/zoomeye-api/images/download.svg)](https://bintray.com/donglua/maven/zoomeye-api/_latestVersion)
 ```gradle
 compile 'org.droiders:zoomeye-api:0.1.3'
 ```
@@ -35,6 +35,10 @@ api.login(new LoginRequest(username, password))
       }
     });
 ```
+## App
+
+* [ZoomEyeAndroid](https://github.com/donglua/ZoomEyeAndroid)
+
 ## License
 ```
 Copyright 2016 Huang Donglu
@@ -52,3 +56,4 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 ```
+
